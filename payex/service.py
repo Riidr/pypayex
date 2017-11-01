@@ -3,9 +3,9 @@ from payex.pxagreement import (
         PxAgreementCheckHandler
         )
 from payex.pxorder import (
-        PxOrderInitialize7Handler, PxOrderCompleteHandler, PxOrderCapture4Handler,
-        PxOrderGetTransactionDetails2Handler, PxCancel2Handler,
-        )
+    PxOrderInitialize8Handler, PxOrderCompleteHandler, PxOrderCapture5Handler,
+    PxOrderGetTransactionDetails2Handler, PxCancel2Handler, PxOrderCheck2Handler,
+    PxOrderAddSingleOrderLine2)
 
 class Payex(object):
     """
@@ -26,12 +26,14 @@ class Payex(object):
         self.add_resource('autopay', PxAutoPay2Handler)
         
         # Add order handlers
-        self.add_resource('initialize', PxOrderInitialize7Handler)
+        self.add_resource('initialize', PxOrderInitialize8Handler)
         self.add_resource('complete', PxOrderCompleteHandler)
-        self.add_resource('capture', PxOrderCapture4Handler)
+        self.add_resource('capture', PxOrderCapture5Handler)
         self.add_resource('cancel', PxCancel2Handler)
         self.add_resource('get_transaction_details', PxOrderGetTransactionDetails2Handler)
-    
+        self.add_resource('check', PxOrderCheck2Handler)
+        self.add_resource('order_line', PxOrderAddSingleOrderLine2)
+
     def add_resource(self, name, handler):
         """
         Initializes the handler with this service instance.

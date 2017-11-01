@@ -17,7 +17,7 @@ class PxOrderHandler(BaseHandler):
         if self._service.production:
             self._wdsl_url = 'https://external.payex.com/pxorder/pxorder.asmx?WSDL'
         else:
-            self._wdsl_url = 'https://test-external.payex.com/pxorder/pxorder.asmx?WSDL'
+            self._wdsl_url = 'https://external.externaltest.payex.com/pxorder/pxorder.asmx?WSDL'
         
         # Initialize the client with the WDSL schema
         self._client = Client(self._wdsl_url)

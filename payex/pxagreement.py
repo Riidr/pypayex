@@ -92,10 +92,10 @@ class PxAgreementCheckHandler(PxAgreementHandler):
         
         return self._send_request()
 
-class PxAutoPay2Handler(PxAgreementHandler):
+class PxAutoPay3Handler(PxAgreementHandler):
     """
     Reference:
-    http://www.payexpim.com/technical-reference/pxagreement/autopay2/
+    http://www.payexpim.com/technical-reference/pxagreement/autopay/
     """
 
     field_order = [
@@ -106,11 +106,12 @@ class PxAutoPay2Handler(PxAgreementHandler):
         'description',
         'orderId',
         'purchaseOperation',
+        'currency',
     ]
     
     def __call__(self, *args, **kwargs):
         
-        super(PxAutoPay2Handler, self).__call__(*args, **kwargs)
+        super(PxAutoPay3Handler, self).__call__(*args, **kwargs)
         
         # Set endpoint and send request
         self._endpoint = self._client.service.AutoPay2

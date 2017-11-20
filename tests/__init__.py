@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-:
 import unittest
-from payex.pxagreement import PxCreateAgreement3Handler, PxAutoPay2Handler, PxDeleteAgreementHandler, PxAgreementCheckHandler
+from payex.pxagreement import PxCreateAgreement3Handler, PxAutoPay3Handler, PxDeleteAgreementHandler, PxAgreementCheckHandler
 from payex.pxorder import PxOrderInitialize7Handler, PxOrderCompleteHandler, PxOrderCapture4Handler, PxOrderGetTransactionDetails2Handler
 from payex.service import Payex
 from payex.utils import XmlDictConfig
@@ -34,7 +34,7 @@ class TestService(unittest.TestCase):
         self.assertTrue(isinstance(service.create_agreement, PxCreateAgreement3Handler))
         self.assertTrue(isinstance(service.delete_agreement, PxDeleteAgreementHandler))
         self.assertTrue(isinstance(service.check_agreement, PxAgreementCheckHandler))
-        self.assertTrue(isinstance(service.autopay, PxAutoPay2Handler))
+        self.assertTrue(isinstance(service.autopay, PxAutoPay3Handler))
 
 class TestOrders(unittest.TestCase):
     """

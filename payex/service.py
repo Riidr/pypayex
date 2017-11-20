@@ -3,7 +3,7 @@ from payex.pxagreement import (
         PxAgreementCheckHandler
         )
 from payex.pxorder import (
-        PxOrderInitialize7Handler, PxOrderCompleteHandler, PxOrderCapture4Handler,
+        PxOrderInitialize7Handler, PxOrderCompleteHandler, PxOrderCapture5Handler,
         PxOrderGetTransactionDetails2Handler, PxCancel2Handler,
         )
 
@@ -28,7 +28,7 @@ class Payex(object):
         # Add order handlers
         self.add_resource('initialize', PxOrderInitialize7Handler)
         self.add_resource('complete', PxOrderCompleteHandler)
-        self.add_resource('capture', PxOrderCapture4Handler)
+        self.add_resource('capture', PxOrderCapture5Handler)
         self.add_resource('cancel', PxCancel2Handler)
         self.add_resource('get_transaction_details', PxOrderGetTransactionDetails2Handler)
     

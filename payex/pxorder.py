@@ -83,10 +83,10 @@ class PxOrderCompleteHandler(PxOrderHandler):
         return self._send_request()
 
 
-class PxOrderCapture4Handler(PxOrderHandler):
+class PxOrderCapture5Handler(PxOrderHandler):
     """
     Reference:
-    http://www.payexpim.com/technical-reference/pxorder/capture4/
+    http://www.payexpim.com/technical-reference/pxorder/capture5/
     """
     
     field_order = [
@@ -100,10 +100,10 @@ class PxOrderCapture4Handler(PxOrderHandler):
     
     def __call__(self, *args, **kwargs):
         
-        super(PxOrderCapture4Handler, self).__call__(*args, **kwargs)
+        super(PxOrderCapture5Handler, self).__call__(*args, **kwargs)
         
         # Set endpoint and send request
-        self._endpoint = self._client.service.Capture4
+        self._endpoint = self._client.service.Capture5
         
         return self._send_request()
 

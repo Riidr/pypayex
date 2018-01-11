@@ -20,7 +20,7 @@ class PxConfidentHandler(BaseHandler):
 
             self._wdsl_url = PRODUCTION_URL + 'pxconfined/pxorder.asmx?WSDL'
         else:
-            self._wdsl_url = STAGING_URL + 'https://confined.externaltest.payex.com/PxConfined/Pxorder.asmx?WSDL'
+            self._wdsl_url = STAGING_URL + 'PxConfined/Pxorder.asmx?WSDL'
 
         # Initialize the client with the WDSL schema
         self._client = Client(self._wdsl_url)

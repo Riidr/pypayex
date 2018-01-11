@@ -1,5 +1,6 @@
 from suds.client import Client
 
+from payex.config import PRODUCTION_URL, STAGING_URL
 from payex.handlers import BaseHandler
 
 
@@ -17,9 +18,9 @@ class PxConfidentHandler(BaseHandler):
         # Which WDSL URL to use
         if self._service.production:
 
-            self._wdsl_url = 'https://external.payex.com/pxconfined/pxorder.asmx?WSDL'
+            self._wdsl_url = PRODUCTION_URL + 'pxconfined/pxorder.asmx?WSDL'
         else:
-            self._wdsl_url = 'https://confined.externaltest.payex.com/PxConfined/Pxorder.asmx?WSDL'
+            self._wdsl_url = STAGING_URL + 'https://confined.externaltest.payex.com/PxConfined/Pxorder.asmx?WSDL'
 
         # Initialize the client with the WDSL schema
         self._client = Client(self._wdsl_url)

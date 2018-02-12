@@ -12,13 +12,14 @@ class Payex(object):
     Base Payex service, with handlers.
     """
     
-    def __init__(self, merchant_number, encryption_key, production=False):
+    def __init__(self, merchant_number, encryption_key, production=False, force_url=None):
         
         # Set account credentials
         self.accountNumber = merchant_number
         self.encryption_key = encryption_key
         self.production = production
-        
+        self.force_url = force_url
+
         # Add agreement handlers
         self.add_resource('create_agreement', PxCreateAgreement3Handler)
         self.add_resource('delete_agreement', PxDeleteAgreementHandler)

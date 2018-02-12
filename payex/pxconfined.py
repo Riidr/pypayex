@@ -16,8 +16,9 @@ class PxConfidentHandler(BaseHandler):
             setattr(self, key, value)
 
         # Which WDSL URL to use
-        if self._service.production:
-
+        if self._service.force_url:
+            self._wdsl_url = self._service.force_url + 'pxconfined/pxorder.asmx?WSDL'
+        elif self._service.production:
             self._wdsl_url = PRODUCTION_URL + 'pxconfined/pxorder.asmx?WSDL'
         else:
             self._wdsl_url = STAGING_URL + 'PxConfined/Pxorder.asmx?WSDL'

@@ -130,6 +130,7 @@ class PxOrderCheck2Handler(PxOrderHandler):
 
         return self._send_request()
 
+
 class PxOrderCapture5Handler(PxOrderHandler):
     """
     Reference:
@@ -150,6 +151,30 @@ class PxOrderCapture5Handler(PxOrderHandler):
 
         # Set endpoint and send request
         self._endpoint = self._client.service.Capture5
+
+        return self._send_request()
+
+
+class PxOrderCredit5Handler(PxOrderHandler):
+    """
+    Reference:
+    http://www.payexpim.com/technical-reference/pxorder/credit5/
+    """
+
+    field_order = [
+        'accountNumber',
+        'transactionNumber',
+        'amount',
+        'orderId',
+        'vatAmount',
+        'additionalValues',
+    ]
+
+    def __call__(self, *args, **kwargs):
+        super(PxOrderCredit5Handler, self).__call__(*args, **kwargs)
+
+        # Set endpoint and send request
+        self._endpoint = self._client.service.Credit5
 
         return self._send_request()
 

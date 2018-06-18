@@ -5,7 +5,7 @@ from payex.pxagreement import (
 from payex.pxorder import (
     PxOrderInitialize8Handler, PxOrderCompleteHandler, PxOrderCapture5Handler,
     PxOrderGetTransactionDetails2Handler, PxCancel2Handler, PxOrderCheck2Handler,
-    PxOrderAddSingleOrderLine2)
+    PxOrderAddSingleOrderLine2, PxOrderCredit5Handler)
 
 class Payex(object):
     """
@@ -32,6 +32,7 @@ class Payex(object):
         self.add_resource('initialize', PxOrderInitialize8Handler)
         self.add_resource('complete', PxOrderCompleteHandler)
         self.add_resource('capture', PxOrderCapture5Handler)
+        self.add_resource('credit', PxOrderCredit5Handler)
         self.add_resource('cancel', PxCancel2Handler)
         self.add_resource('get_transaction_details', PxOrderGetTransactionDetails2Handler)
         self.add_resource('check', PxOrderCheck2Handler)
